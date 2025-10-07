@@ -4,20 +4,17 @@ import com.kumarsatyam.todolist.dtos.TaskDto;
 import com.kumarsatyam.todolist.entities.Task;
 import com.kumarsatyam.todolist.mappers.TaskMapper;
 import com.kumarsatyam.todolist.repositories.TaskRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@AllArgsConstructor
 @Service
 public class TaskService {
     private final TaskRepository taskRepository;
     private final TaskMapper taskMapper;
-
-    public TaskService(TaskRepository taskRepository, TaskMapper taskMapper) {
-        this.taskRepository = taskRepository;
-        this.taskMapper = taskMapper;
-    }
 
     public TaskDto createTask(TaskDto dto) {
         Task task = taskMapper.toEntity(dto);
